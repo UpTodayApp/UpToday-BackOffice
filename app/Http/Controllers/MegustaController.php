@@ -9,11 +9,11 @@ class MegustaController extends Controller
 {
     public function CrearPost(Request $request)
     {
-        if ($request->has("usuario_id")) {
+        if ($request->has("usuario")) {
 
 
             $megusta = new Megusta();
-            $megusta->usuario_id = $request->post("usuario_id");
+            $megusta->usuario = $request->post("usuario");
             $megusta->post_id = $request->post("post_id");
             $megusta->save();
             return $megusta;
@@ -21,14 +21,16 @@ class MegustaController extends Controller
         return response()->json(["error mesage" => "sos un salame"]);
     }
 
-    public function ListarTodasPost(Request $request)
+    public function ListarTodas(Request $request)
     {
-        return megusta::all();
+        $megusta=megusta::all();
+        return view("listarLikes", ["megusta" => $megusta]);
     }
 
     public function ListarUnaPost(Request $request, $id)
     {
         return megusta::findOrFail($id);
+
     }
 
     public function EliminarPost(Request $request, $id)
@@ -41,7 +43,7 @@ class MegustaController extends Controller
     public function ModificarPost(Request $request, $id)
     {
         $megusta = megusta::findOrFail($id);
-        $megusta->usuario_id = $request->post("usuario_id");
+        $megusta->usuario = $request->post("usuario");
         $megusta->post_id = $request->post("post_id");
         $megusta->save();
         return $megusta;
@@ -51,11 +53,11 @@ class MegustaController extends Controller
 
     public function CrearComentario(Request $request)
     {
-        if ($request->has("usuario_id")) {
+        if ($request->has("usuario")) {
 
 
             $megusta = new Megusta();
-            $megusta->usuario_id = $request->post("usuario_id");
+            $megusta->usuario = $request->post("usuario");
             $megusta->comentario_id = $request->post("comentario_id");
             $megusta->save();
             return $megusta;
@@ -83,7 +85,7 @@ class MegustaController extends Controller
     public function ModificarComentario(Request $request, $id)
     {
         $megusta = megusta::findOrFail($id);
-        $megusta->usuario_id = $request->post("usuario_id");
+        $megusta->usuario = $request->post("usuario");
         $megusta->comentario_id = $request->post("comentario_id");
         $megusta->save();
         return $megusta;

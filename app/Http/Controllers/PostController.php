@@ -9,11 +9,11 @@ class PostController extends Controller
 {
     public function Crear(Request $request)
     {
-        if ($request->has("contenido") && $request->has("usuario_id")) {
+        if ($request->has("contenido") && $request->has("usuario")) {
 
 
             $post = new Post();
-            $post->usuario_id = $request->post("usuario_id");
+            $post->usuario_id = $request->post("usuario");
             $post->contenido = $request->post("contenido");
             $post->save();
             return $post;
@@ -23,7 +23,8 @@ class PostController extends Controller
 
     public function ListarTodas(Request $request)
     {
-        return Post::all();
+        $post = Post::all();
+        return view("listarPost", ["post" => $post]);
     }
 
     public function ListarUna(Request $request, $id)
@@ -35,15 +36,20 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        return ['mensaje' => 'Post eliminado'];
     }
 
     public function Modificar(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        $post->usuario_id = $request->post("usuario_id");
+        $post->usuario = $request->post("usuario");
         $post->contenido = $request->post("contenido");
         $post->save();
         return $post;
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+        return view("modificarPost", ["post" => $post]);
     }
 }

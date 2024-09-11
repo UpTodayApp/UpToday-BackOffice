@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\MegustaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PostController::class, 'ListarTodas']);
+Route::get('/listarPost', [PostController::class, 'ListarTodas']);
+Route::get('/post/{d}', [PostController::class, 'ListarUna']);
+Route::post('/crearPost', [PostController::class, 'Crear']);
+Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar']);
+
+
+Route::get('/listarComentario', [ComentarioController::class, 'ListarTodas']);
+Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar']);
+
+Route::get('/listarLike', [MegustaController::class, 'ListarTodas']);
+Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar']);
+
+
+

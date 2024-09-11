@@ -10,11 +10,11 @@ class ComentarioController extends Controller
 
     public function Crear(Request $request)
     {
-        if ($request->has("contenido") && $request->has("usuario_id")) {
+        if ($request->has("contenido") && $request->has("idUsuario")) {
 
 
             $comentario = new Comentario();
-            $comentario->usuario_id = $request->post("usuario_id");
+            $comentario->idUsuario = $request->post("idUsuario");
             $comentario->contenido = $request->post("contenido");
             $comentario->save();
             return $comentario;
@@ -24,7 +24,8 @@ class ComentarioController extends Controller
 
     public function ListarTodas(Request $request)
     {
-        return Comentario::all();
+        $comentario=Comentario::all();
+        return view("listarComentario", ["comentario" => $comentario]);
     }
 
     public function ListarUna(Request $request, $id)
@@ -42,9 +43,10 @@ class ComentarioController extends Controller
     public function Modificar(Request $request, $id)
     {
         $comentario = Comentario::findOrFail($id);
-        $comentario->usuario_id = $request->post("usuario_id");
+        $comentario->idUsuario = $request->post("idUsuario");
         $comentario->contenido = $request->post("contenido");
         $comentario->save();
         return $comentario;
     }
+
 }
