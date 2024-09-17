@@ -34,9 +34,9 @@ class usuarioController extends Controller
 
     public function Eliminar(Request $request, $id)
     {
-        $post = usuario::findOrFail($id);
-        $post->delete();
-        return ['mensaje' => 'usuario eliminado'];
+        $usuario = usuario::findOrFail($id);
+        $usuario->delete();
+        return view("listarUsuario", ["usuario" => $usuario]);
     }
 
     public function Modificar(Request $request, $id)

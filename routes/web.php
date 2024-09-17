@@ -31,3 +31,5 @@ Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar']);
 Route::get('/listarEvento', [eventoController::class, 'ListarTodas']);
 Route::get('/eliminarEvento/{d}', [eventoController::class, 'Eliminar']);
 
+Route::get('/listarUsuario', [usuarioController::class, 'ListarTodas']);
+Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar']);
