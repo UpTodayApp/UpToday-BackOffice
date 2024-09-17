@@ -1,7 +1,5 @@
 @include("base.header")
 
-<a href="/">Inicio</a> - <a href="/crearPost">Crear</a> - <a href="/modificarPost">Modificar</a> <br><br>
-
 @if(session("creado"))
 <b>Post creado</b> <br>
 @endif
