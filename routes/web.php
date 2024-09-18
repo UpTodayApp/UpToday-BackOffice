@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\MegustaController;
+use App\Http\Controllers\eventoController;
+use App\Http\Controllers\usuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +30,8 @@ Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar'])
 Route::get('/listarLike', [MegustaController::class, 'ListarTodas']);
 Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar']);
 
-Route::get('/listarEvento', [eventoController::class, 'ListarTodas']);
-Route::get('/eliminarEvento/{d}', [eventoController::class, 'Eliminar']);
+Route::get('/listarEvento', [EventoController::class, 'ListarTodas']);
+Route::get('/eliminarEvento/{d}', [EventoController::class, 'Eliminar']);
 
 Route::get('/listarUsuario', [usuarioController::class, 'ListarTodas']);
 Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar']);

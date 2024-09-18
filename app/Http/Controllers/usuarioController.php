@@ -24,7 +24,8 @@ class usuarioController extends Controller
 
     public function ListarTodas(Request $request)
     {
-        return usuario::all();
+        $usuario = usuario::all();
+        return view("listarUsuario", ["usuario" => $usuario]);
     }
 
     public function ListarUna(Request $request, $id)

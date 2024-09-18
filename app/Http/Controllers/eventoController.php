@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\evento;
 use Illuminate\Http\Request;
 
-class eventoController extends Controller
+class EventoController extends Controller
 {
     public function Crear(Request $request)
     {
@@ -26,7 +26,8 @@ class eventoController extends Controller
 
     public function ListarTodas(Request $request)
     {
-        return evento::all();
+        $evento = evento::all();
+        return view("listarEvento", ["evento" => $evento]);
     }
 
     public function ListarUna(Request $request, $id)
