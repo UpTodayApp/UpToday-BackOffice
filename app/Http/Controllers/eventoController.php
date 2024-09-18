@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\evento;
 use Illuminate\Http\Request;
 
-class EventoController extends Controller
+class eventoController extends Controller
 {
     public function Crear(Request $request)
     {

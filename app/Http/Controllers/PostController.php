@@ -24,7 +24,7 @@ class PostController extends Controller
     public function ListarTodas(Request $request)
     {
         $post = Post::all();
-        return redirect("/listarPost");
+        return view("listarPost", ["post" => $post]);
     }
 
     public function ListarUna(Request $request, $id)
@@ -36,6 +36,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+        return redirect("/listarPost");
     }
 
     public function Modificar(Request $request, $id)

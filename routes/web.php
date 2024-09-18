@@ -6,6 +6,7 @@ use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\MegustaController;
 use App\Http\Controllers\eventoController;
 use App\Http\Controllers\usuarioController;
+use App\Http\Controllers\GrupoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +18,9 @@ use App\Http\Controllers\usuarioController;
 |
 */
 
-Route::get('/', [PostController::class, 'ListarTodas']);
 Route::get('/listarPost', [PostController::class, 'ListarTodas']);
-Route::get('/post/{d}', [PostController::class, 'ListarUna']);
-Route::post('/crearPost', [PostController::class, 'Crear']);
 Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar']);
+
 
 
 Route::get('/listarComentario', [ComentarioController::class, 'ListarTodas']);
@@ -30,8 +29,11 @@ Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar'])
 Route::get('/listarLike', [MegustaController::class, 'ListarTodas']);
 Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar']);
 
-Route::get('/listarEvento', [EventoController::class, 'ListarTodas']);
-Route::get('/eliminarEvento/{d}', [EventoController::class, 'Eliminar']);
+Route::get('/listarEvento', [eventoController::class, 'ListarTodas']);
+Route::get('/eliminarEvento/{d}', [eventoController::class, 'Eliminar']);
 
 Route::get('/listarUsuario', [usuarioController::class, 'ListarTodas']);
 Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar']);
+
+Route::get('/listarGrupo', [GrupoController::class, 'ListarTodas']);
+Route::get('/eliminarGrupo/{d}', [GrupoController::class, 'Eliminar']);
