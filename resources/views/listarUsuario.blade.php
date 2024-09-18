@@ -8,6 +8,9 @@
             Usuario
         </th>
         <th>
+            NombreUsuario
+        </th>
+        <th>
             Correo
         </th>
         <th>
@@ -16,6 +19,9 @@
     </thead>
     @foreach ($usuario as $p)
     <tr>
+    <td>
+            {{ $p->id }}
+        </td>
         <td>
             {{ $p->NombreUsuario }}
         </td>

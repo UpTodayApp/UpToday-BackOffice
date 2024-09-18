@@ -37,7 +37,7 @@ class ComentarioController extends Controller
     {
         $comentario = Comentario::findOrFail($id);
         $comentario->delete();
-        return ['mensaje' => 'Comentario eliminado'];
+        return redirect("/listarCometario");
     }
 
     public function Modificar(Request $request, $id)

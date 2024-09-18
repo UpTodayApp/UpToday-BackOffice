@@ -24,7 +24,7 @@ class PostController extends Controller
     public function ListarTodas(Request $request)
     {
         $post = Post::all();
-        return view("listarPost", ["post" => $post]);
+        return redirect("/listarPost");
     }
 
     public function ListarUna(Request $request, $id)

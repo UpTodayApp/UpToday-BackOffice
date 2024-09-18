@@ -39,7 +39,7 @@ class EventoController extends Controller
     {
         $evento = evento::findOrFail($id);
         $evento->delete();
-        return view("listarEvento", ["evento" => $evento]);
+        return redirect("/listarEvento");
     }
 
     public function Modificar(Request $request, $id)

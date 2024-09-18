@@ -37,7 +37,7 @@ class usuarioController extends Controller
     {
         $usuario = usuario::findOrFail($id);
         $usuario->delete();
-        return view("listarUsuario", ["usuario" => $usuario]);
+        return redirect("/listarUsuario");
     }
 
     public function Modificar(Request $request, $id)
