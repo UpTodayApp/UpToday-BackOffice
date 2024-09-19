@@ -1,7 +1,7 @@
 @include("base.header")
 
 
-<h2>Comentarios registrados </h2>
+<h2>Grupos registrados </h2>
 <table>
     <thead>
         <th>

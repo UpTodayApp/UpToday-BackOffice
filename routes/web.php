@@ -7,6 +7,8 @@ use App\Http\Controllers\MegustaController;
 use App\Http\Controllers\eventoController;
 use App\Http\Controllers\usuarioController;
 use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\Autenticacion;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,22 +20,43 @@ use App\Http\Controllers\GrupoController;
 |
 */
 
-Route::get('/listarPost', [PostController::class, 'ListarTodas']);
-Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar']);
+Route::get('/listarPost', [PostController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
 
 
 
-Route::get('/listarComentario', [ComentarioController::class, 'ListarTodas']);
-Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar']);
+Route::get('/listarComentario', [ComentarioController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
 
-Route::get('/listarLike', [MegustaController::class, 'ListarTodas']);
-Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar']);
+Route::get('/listarLike', [MegustaController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
 
-Route::get('/listarEvento', [eventoController::class, 'ListarTodas']);
-Route::get('/eliminarEvento/{d}', [eventoController::class, 'Eliminar']);
+Route::get('/listarEvento', [eventoController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarEvento/{d}', [eventoController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
 
-Route::get('/listarUsuario', [usuarioController::class, 'ListarTodas']);
-Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar']);
+Route::get('/listarUsuario', [usuarioController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
 
-Route::get('/listarGrupo', [GrupoController::class, 'ListarTodas']);
-Route::get('/eliminarGrupo/{d}', [GrupoController::class, 'Eliminar']);
+Route::get('/listarGrupo', [GrupoController::class, 'ListarTodas'])
+    ->middleware(Autenticacion::class);
+Route::get('/eliminarGrupo/{d}', [GrupoController::class, 'Eliminar'])
+    ->middleware(Autenticacion::class);
+
+
+
+
+Route::post("/login", [UserController::class, "Login"]);
+Route::get('/logout', [UserController::class, "Logout"]);
+Route::get('/login', function () {
+    return view('login');
+});
