@@ -1,6 +1,5 @@
 @include("base.header")
 
-
 <h2>Usuarios registrados </h2>
 <table>
     <thead>
