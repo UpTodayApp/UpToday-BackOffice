@@ -18,6 +18,8 @@ use App\Http\Controllers\GrupoController;
 |
 */
 
+
+Route::get('/crearPost', [PostController::class, 'Crear']);
 Route::get('/listarPost', [PostController::class, 'ListarTodas']);
 Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar']);
 
