@@ -19,7 +19,7 @@ class eventoController extends Controller
             $evento->detalles = $request->post("detalles");
             $evento->ubicacion = $request->post("ubicacion");
             $evento->save();
-            return $evento;
+            return(redirect("listarEvento"));
         }
         return response()->json(["error mesage" => "no se pudo crear el evento"]);
     }
@@ -51,5 +51,11 @@ class eventoController extends Controller
         $evento->ubicacion = $request->post("ubicacion");
         $evento->save();
         return $evento;
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id)
+    {
+        $evento = evento::findOrFail($id);
+        return view("modificarEvento", ["evento" => $evento]);
     }
 }

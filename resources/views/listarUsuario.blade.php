@@ -2,6 +2,9 @@
 
 
 <h2>Usuarios registrados </h2>
+
+<a href="/crearUsuario">Crear</a>
+
 <table>
     <thead>
         <th>
@@ -34,6 +37,7 @@
 
         <td>
             <a href="/eliminarUsuario/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarUsuario/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach

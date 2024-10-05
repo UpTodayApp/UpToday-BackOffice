@@ -3,6 +3,8 @@
 
 <h2>Eventos registrados </h2>
 
+<a href="/crearEvento">Crear</a>
+
 <table>
     <thead>
         <th>
@@ -41,6 +43,7 @@
 
         <td>
             <a href="/eliminarEvento/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarEvento/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach

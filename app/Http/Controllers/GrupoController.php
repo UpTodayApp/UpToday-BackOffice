@@ -16,7 +16,7 @@ class GrupoController extends Controller
             $grupo->nombre = $request->post("nombre");
             $grupo->descripcion = $request->post("descripcion");
             $grupo->save();
-            return $grupo;
+            return(redirect("listarGrupo"));
         }
         return response()->json(["error mesage" => "no se pudo crear el grupo"]);
     }
@@ -46,5 +46,11 @@ class GrupoController extends Controller
         $grupo->descripcion = $request->post("descripcion");
         $grupo->save();
         return $grupo;
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id)
+    {
+        $grupo = grupo::findOrFail($id);
+        return view("modificarGrupo", ["grupo" => $grupo]);
     }
 }

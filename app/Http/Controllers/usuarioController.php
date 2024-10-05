@@ -17,7 +17,7 @@ class usuarioController extends Controller
             $usuario->Correo = $request->post("Correo");
             $usuario->Contraseña = $request->post("Contraseña");
             $usuario->save();
-            return $usuario;
+            return(redirect("listarUsuario"));
         }
         return response()->json(["error mesage" => "no se pudo crear el usuario, hubo un error"]);
     }
@@ -48,5 +48,11 @@ class usuarioController extends Controller
         $usuario->Contraseña = $request->post("Contraseña");
         $usuario->save();
         return $usuario;
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id)
+    {
+        $usuario = usuario::findOrFail($id);
+        return view("modificarUsuario", ["usuario" => $usuario]);
     }
 }

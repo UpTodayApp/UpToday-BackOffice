@@ -10,16 +10,17 @@ class ComentarioController extends Controller
 
     public function Crear(Request $request)
     {
-        if ($request->has("contenido") && $request->has("idUsuario")) {
+        if ($request->has("contenido") && $request->has("usuario_id")) {
 
 
             $comentario = new Comentario();
-            $comentario->idUsuario = $request->post("idUsuario");
+            $comentario->usuario_id = $request->post("usuario_id");
             $comentario->contenido = $request->post("contenido");
+            $comentario->post_id = $request->post("post_id");
             $comentario->save();
-            return $comentario;
+            return (redirect("listarComentario"));
         }
-        return response()->json(["error mesage" => "sos un salame"]);
+        return response()->json(["error mesage" => "error"]);
     }
 
     public function ListarTodas(Request $request)
@@ -43,10 +44,16 @@ class ComentarioController extends Controller
     public function Modificar(Request $request, $id)
     {
         $comentario = Comentario::findOrFail($id);
-        $comentario->idUsuario = $request->post("idUsuario");
+        $comentario->usuario_id = $request->post("usuario_id");
         $comentario->contenido = $request->post("contenido");
+        $comentario->post_id = $request->post("post_id");
         $comentario->save();
         return $comentario;
     }
 
+    public function MostrarFormularioDeModificar(Request $request, $id)
+    {
+        $comentario = Comentario::findOrFail($id);
+        return view("modificarComentario", ["comentario" => $comentario]);
+    }
 }

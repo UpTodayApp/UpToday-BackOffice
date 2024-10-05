@@ -2,6 +2,9 @@
 
 
 <h2>Grupos registrados </h2>
+
+<a href="/crearGrupo">Crear</a>
+
 <table>
     <thead>
         <th>
@@ -28,6 +31,7 @@
 
         <td>
             <a href="/eliminarGrupo/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarGrupo/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach

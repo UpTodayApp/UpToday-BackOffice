@@ -1,6 +1,9 @@
 @include("base.header")
 
 <h2>Post registrados </h2>
+
+<a href="/crearPost">Crear</a>
+
 <table>
     <thead>
         <th>
@@ -27,6 +30,7 @@
 
         <td>
             <a href="/eliminarPost/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarPost/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach

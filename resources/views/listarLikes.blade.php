@@ -2,6 +2,8 @@
 
 
 <h2>Likes registrados </h2>
+<a href="/crearMegustaPost">Crear me gusta post</a>
+<a href="/crearMegustaComentario">Crear me gusta comentario</a>
 <table>
     <thead>
         <th>
@@ -34,6 +36,7 @@
 
         <td>
             <a href="/eliminarLike/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarLike/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach

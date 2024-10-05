@@ -16,7 +16,7 @@ class PostController extends Controller
             $post->usuario_id = $request->post("usuario");
             $post->contenido = $request->post("contenido");
             $post->save();
-            return $post;
+            return redirect("listarPost");
         }
         return response()->json(["error mesage" => "sos un salame"]);
     }
