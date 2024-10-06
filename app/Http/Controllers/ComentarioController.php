@@ -48,7 +48,7 @@ class ComentarioController extends Controller
         $comentario->contenido = $request->post("contenido");
         $comentario->post_id = $request->post("post_id");
         $comentario->save();
-        return $comentario;
+        return (redirect("listarComentario"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)
