@@ -5,8 +5,8 @@
 
     <form action="/crearUsuario" method="post">
         @csrf
-        Nombre Usuario: <input type="text" name="NombreUsuario"> <br>
-        Correo: <input type="text" name="Correo"> <br><br>
-        Contraseña: <input type="text" name="Contraseña"> <br><br>
+        Nombre Usuario: <input type="text" name="nombre"> <br>
+        Correo: <input type="text" name="correo"> <br><br>
+        Contraseña: <input type="text" name="contrasenia"> <br><br>
         <input type="submit" value="Enviar">
     </form>

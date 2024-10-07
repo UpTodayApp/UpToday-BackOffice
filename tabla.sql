@@ -1,44 +1,50 @@
+DROP DATABASE IF EXISTS prueba;
+CREATE DATABASE prueba CHARSET utf8mb4;
+USE prueba;
+
 CREATE TABLE usuario (
   id int(11) NOT NULL AUTO_INCREMENT,
-  NombreUsuario varchar(20),
-  Contraseña varchar(255),
-  Correo varchar(255),
-  FechaNacimiento date,
-  Reputacion int(3),
-  Estado varchar(100),
-  Pais varchar(20),
-  Ciudad varchar(20),
-  Biografia varchar(20),
-  Redes varchar(20),
+  nombre varchar(20),
+  contrasenia varchar(255),
+  correo varchar(255),
+  nacimiento date,
+  estado varchar(100),
+  pais varchar(20),
+  ciudad varchar(20),
+  biografia varchar(20),
+  redes varchar(20),
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   deleted_at datetime DEFAULT NULL,
   PRIMARY KEY (id)
 );
 
-
 CREATE TABLE post (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  contenido varchar(255) DEFAULT NULL,
+  id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  contenido varchar(255), 
+  fecha date, 
+  megusta varchar(4), 
+  ubicacion varchar(255),
+  etiquetas varchar(30),
   usuario_id int(11) DEFAULT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   deleted_at datetime DEFAULT NULL,
-  FOREIGN KEY (usuario_id) REFERENCES usuario(id),
-  PRIMARY KEY (id)
+  FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 CREATE TABLE comentario (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  contenido varchar(255) DEFAULT NULL,
-  usuario_id int(11) DEFAULT NULL,
+  id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  contenido varchar(255), 
+  fecha date, 
+  megusta varchar(4),
+  post_id int(6) UNSIGNED,
+  usuario_id int(11),
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   deleted_at datetime DEFAULT NULL,
-  post_id int,
-  FOREIGN KEY (usuario_id) REFERENCES usuario(id),
   FOREIGN KEY (post_id) REFERENCES post(id),
-  PRIMARY KEY (id)
+  FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 CREATE TABLE megusta (
@@ -47,15 +53,39 @@ CREATE TABLE megusta (
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   deleted_at datetime DEFAULT NULL,
-  comentario_id int,
-  post_id int,
-  FOREIGN KEY (comentario_id) REFERENCES comentario(id),
+  comentario_id int(6) UNSIGNED,
+  post_id int(6) UNSIGNED,
+  FOREIGN KEY (comentario_id) REFERENCES Comentario(id),
   FOREIGN KEY (post_id) REFERENCES post(id),
   FOREIGN KEY (usuario_id) REFERENCES usuario(id),
   PRIMARY KEY (id)
 );
 
- CREATE TABLE `admin_users` (
+CREATE TABLE evento (
+  id int(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  participan int(6), 
+  detalles varchar(255), 
+  fecha date, 
+  ubicacion varchar(184), 
+  etiquetas varchar(30),
+  usuario_id int,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  deleted_at datetime DEFAULT NULL,
+  FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+create table grupo (
+id int(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+nombre varchar(50), 
+descripcion varchar(255), 
+foto varchar(50),
+created_at datetime DEFAULT NULL,
+updated_at datetime DEFAULT NULL,
+deleted_at datetime DEFAULT NULL
+);
+
+ CREATE TABLE `user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -67,3 +97,6 @@ CREATE TABLE megusta (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
 );
+
+
+INSERT INTO `user`(id, name, email, email_verified_at, password,  remember_token, created_at, updated_at) VALUES (1,'usuario','usuario@usuario.com',NULL,'$2y$10$om5sEc.3.Gi9Uf6S9NU0DeY7u6rJO9YQDud3L9rC46TtD/ON35/6G',NULL,'2024-08-13 02:25:25','2024-08-13 02:25:25');

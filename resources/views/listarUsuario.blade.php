@@ -11,7 +11,7 @@
             Usuario
         </th>
         <th>
-            NombreUsuario
+            Nombre
         </th>
         <th>
             Correo
@@ -26,13 +26,13 @@
             {{ $p->id }}
         </td>
         <td>
-            {{ $p->NombreUsuario }}
+            {{ $p->nombre }}
         </td>
         <td>
-            {{ $p->Correo }}
+            {{ $p->correo }}
         </td>
         <td>
-            {{ $p->Contraseña }}
+            {{ $p->contrasenia }}
         </td>
 
         <td>

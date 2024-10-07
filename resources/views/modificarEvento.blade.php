@@ -1,6 +1,6 @@
 @include("base.header")
 
-    <h3>Modificar un Comentario</h3>
+    <h3>Modificar un evento</h3>
 
 
     <form action="/modificarEvento" method="post">
