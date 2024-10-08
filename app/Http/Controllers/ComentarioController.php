@@ -41,9 +41,9 @@ class ComentarioController extends Controller
         return redirect("/listarCometario");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
     {
-        $comentario = Comentario::findOrFail($id);
+        $comentario = Comentario::findOrFail($request -> post("id"));
         $comentario->usuario_id = $request->post("usuario_id");
         $comentario->contenido = $request->post("contenido");
         $comentario->post_id = $request->post("post_id");

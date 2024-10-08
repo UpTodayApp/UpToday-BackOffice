@@ -39,13 +39,13 @@ class PostController extends Controller
         return redirect("/listarPost");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
     {
-        $post = Post::findOrFail($id);
-        $post->usuario = $request->post("usuario");
+        $post = Post::findOrFail($request -> post("id"));
+        $post->usuario_id = $request->post("usuario_id");
         $post->contenido = $request->post("contenido");
         $post->save();
-        return $post;
+        return (redirect("listarPost"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)

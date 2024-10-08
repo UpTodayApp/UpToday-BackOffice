@@ -5,7 +5,8 @@
 
     <form action="/modificarGrupo" method="post">
         @csrf
-        Nombre: <input type="text" name="nombre"> <br>
-        Descripcion: <input type="text" name="descripcion"> <br><br>
+        <input type="hidden" name="id" value="{{ $grupo -> id }}">
+        Nombre: <input type="text" name="nombre" value="{{ $grupo -> nombre }}"> <br>
+        Descripcion: <input type="text" name="descripcion" value="{{ $grupo -> descripcion }}"> <br><br>
         <input type="submit" value="Enviar">
     </form>

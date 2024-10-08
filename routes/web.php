@@ -39,7 +39,7 @@ Route::get('/crearComentario', function () {return view('crearComentario');})
     -> middleware(Autenticacion::class);
 Route::post('/crearComentario', [ComentarioController::class, 'Crear'])
     ->middleware(Autenticacion::class);
-    Route::get('/modificarComentario/{d}', [ComentarioController::class, 'MostrarFormularioDeModificar'])
+Route::get('/modificarComentario/{d}', [ComentarioController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
 Route::post('/modificarComentario', [ComentarioController::class, 'Modificar'])
     ->middleware(Autenticacion::class);    
@@ -56,6 +56,10 @@ Route::post('/crearMegustaPost', [MegustaController::class, 'CrearPost']);
 Route::get('/crearMegustaComentario', function () {return view('crearLikeComentario');})
     -> middleware(Autenticacion::class);
 Route::post('/crearMegustaComentario', [MegustaController::class, 'CrearComentario'])
+    ->middleware(Autenticacion::class);
+Route::get('/modificarLike/{d}', [MegustaController::class, 'MostrarFormularioDeModificar'])
+    ->middleware(Autenticacion::class);
+Route::post('/modificarLike', [MegustaController::class, 'Modificar'])
     ->middleware(Autenticacion::class);
 Route::get('/listarLike', [MegustaController::class, 'ListarTodas'])
     ->middleware(Autenticacion::class);

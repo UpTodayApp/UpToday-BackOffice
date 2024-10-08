@@ -5,8 +5,9 @@
 
     <form action="/modificarUsuario" method="post">
         @csrf
-        Nombre Usuario: <input type="text" name="NombreUsuario"> <br>
-        Correo: <input type="text" name="Correo"> <br><br>
-        Contraseña: <input type="text" name="Contraseña"> <br><br>
+        <input type="hidden" name="id" value="{{ $usuario -> id }}">
+        Nombre Usuario: <input type="text" name="nombre" value="{{ $usuario -> nombre }}"> <br>
+        Correo: <input type="text" name="correo" value="{{ $usuario -> correo }}"> <br><br>
+        Contraseña: <input type="text" name="contrasenia" value="{{ $usuario -> contrasenia }}"> <br><br>
         <input type="submit" value="Enviar">
     </form>

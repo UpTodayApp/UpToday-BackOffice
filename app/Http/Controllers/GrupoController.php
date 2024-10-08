@@ -39,13 +39,13 @@ class GrupoController extends Controller
         return redirect("/listarGrupo");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
     {
-        $grupo = grupo::findOrFail($id);
+        $grupo = grupo::findOrFail($request -> post("id"));
         $grupo->nombre = $request->post("nombre");
         $grupo->descripcion = $request->post("descripcion");
         $grupo->save();
-        return $grupo;
+        return(redirect("listarGrupo"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)

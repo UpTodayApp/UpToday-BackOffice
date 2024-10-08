@@ -42,15 +42,14 @@ class eventoController extends Controller
         return redirect("/listarEvento");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
     {
-        $evento = evento::findOrFail($id);
-        $evento->participan = $request->post("participan");
+        $evento = evento::findOrFail($request -> post("id"));
         $evento->fecha = $request->post("fecha");
         $evento->detalles = $request->post("detalles");
         $evento->ubicacion = $request->post("ubicacion");
         $evento->save();
-        return $evento;
+        return(redirect("listarEvento"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)

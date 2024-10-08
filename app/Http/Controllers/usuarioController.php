@@ -40,14 +40,14 @@ class usuarioController extends Controller
         return redirect("/listarUsuario");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
     {
-        $usuario = usuario::findOrFail($id);
+        $usuario = usuario::findOrFail($request -> post("id"));
         $usuario->nombre = $request->post("usuario");
         $usuario->correo = $request->post("correo");
         $usuario->contrasenia = $request->post("contrasenia");
         $usuario->save();
-        return $usuario;
+        return(redirect("listarUsuario"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)
