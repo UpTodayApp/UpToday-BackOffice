@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\megusta;
 
-class MegustaController extends Controller
+class megustaController extends Controller
 {
     
     public function CrearPost(Request $request)
@@ -13,7 +13,7 @@ class MegustaController extends Controller
         if ($request->has("usuario_id")) {
 
 
-            $megusta = new Megusta();
+            $megusta = new megusta();
             $megusta->usuario_id = $request->post("usuario_id");
             $megusta->post_id = $request->post("post_id");
             $megusta->save();
@@ -27,7 +27,7 @@ class MegustaController extends Controller
         if ($request->has("usuario_id")) {
 
 
-            $megusta = new Megusta();
+            $megusta = new megusta();
             $megusta->usuario_id = $request->post("usuario_id");
             $megusta->post_id = $request->post("comentario_id");
             $megusta->save();

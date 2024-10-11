@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\grupo;
 
-class GrupoController extends Controller
+class grupoController extends Controller
 {
     public function Crear(Request $request)
     {

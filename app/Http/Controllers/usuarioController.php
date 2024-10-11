@@ -19,7 +19,7 @@ class usuarioController extends Controller
             $usuario->save();
             return(redirect("listarUsuario"));
         }
-        return response()->json(["error mesage" => "no se pudo crear el usuario, hubo un error"]);
+        return response()->json(["error mesage" => "no se pudo crear el usuario"]);
     }
 
     public function ListarTodas(Request $request)

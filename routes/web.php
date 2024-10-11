@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ComentarioController;
-use App\Http\Controllers\MegustaController;
+use App\Http\Controllers\postController;
+use App\Http\Controllers\comentarioController;
+use App\Http\Controllers\megustaController;
 use App\Http\Controllers\eventoController;
 use App\Http\Controllers\usuarioController;
-use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\grupoController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Autenticacion;
 /*
@@ -20,50 +20,50 @@ use App\Http\Middleware\Autenticacion;
 |
 */
 
-Route::get('/crearPost', function () {return view('crearPost');})
+Route::get('/crearPost', function () {return view('crearpost');})
     -> middleware(Autenticacion::class);
-Route::post('/crearPost', [PostController::class, 'Crear'])
+Route::post('/crearPost', [postController::class, 'Crear'])
     ->middleware(Autenticacion::class);
-Route::get('/modificarPost/{d}', [PostController::class, 'MostrarFormularioDeModificar'])
+Route::get('/modificarPost/{d}', [postController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
-Route::post('/modificarPost', [PostController::class, 'Modificar'])
+Route::post('/modificarPost', [postController::class, 'Modificar'])
     ->middleware(Autenticacion::class);
-Route::get('/listarPost', [PostController::class, 'ListarTodas'])
+Route::get('/listarPost', [postController::class, 'ListarTodas'])
     ->middleware(Autenticacion::class);
-Route::get('/eliminarPost/{d}', [PostController::class, 'Eliminar'])
+Route::get('/eliminarPost/{d}', [postController::class, 'Eliminar'])
     ->middleware(Autenticacion::class);
 
 
 
 Route::get('/crearComentario', function () {return view('crearComentario');})
     -> middleware(Autenticacion::class);
-Route::post('/crearComentario', [ComentarioController::class, 'Crear'])
+Route::post('/crearComentario', [comentarioController::class, 'Crear'])
     ->middleware(Autenticacion::class);
-Route::get('/modificarComentario/{d}', [ComentarioController::class, 'MostrarFormularioDeModificar'])
+Route::get('/modificarComentario/{d}', [comentarioController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
-Route::post('/modificarComentario', [ComentarioController::class, 'Modificar'])
+Route::post('/modificarComentario', [comentarioController::class, 'Modificar'])
     ->middleware(Autenticacion::class);    
-Route::get('/listarComentario', [ComentarioController::class, 'ListarTodas'])
+Route::get('/listarComentario', [comentarioController::class, 'ListarTodas'])
     ->middleware(Autenticacion::class);
-Route::get('/eliminarComentario/{d}', [ComentarioController::class, 'Eliminar'])
+Route::get('/eliminarComentario/{d}', [comentarioController::class, 'Eliminar'])
     ->middleware(Autenticacion::class);
 
 
 
-Route::get('/crearMegustaPost', function () {return view('crearLikePost');})
+Route::get('/crearMegustapost', function () {return view('crearLikepost');})
     -> middleware(Autenticacion::class);
-Route::post('/crearMegustaPost', [MegustaController::class, 'CrearPost']);
-Route::get('/crearMegustaComentario', function () {return view('crearLikeComentario');})
+Route::post('/crearMegustapost', [megustaController::class, 'Crearpost']);
+Route::get('/crearmegustaComentario', function () {return view('crearLikeComentario');})
     -> middleware(Autenticacion::class);
-Route::post('/crearMegustaComentario', [MegustaController::class, 'CrearComentario'])
+Route::post('/crearmegustaComentario', [megustaController::class, 'CrearComentario'])
     ->middleware(Autenticacion::class);
-Route::get('/modificarLike/{d}', [MegustaController::class, 'MostrarFormularioDeModificar'])
+Route::get('/modificarLike/{d}', [megustaController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
-Route::post('/modificarLike', [MegustaController::class, 'Modificar'])
+Route::post('/modificarLike', [megustaController::class, 'Modificar'])
     ->middleware(Autenticacion::class);
-Route::get('/listarLike', [MegustaController::class, 'ListarTodas'])
+Route::get('/listarLike', [megustaController::class, 'ListarTodas'])
     ->middleware(Autenticacion::class);
-Route::get('/eliminarLike/{d}', [MegustaController::class, 'Eliminar'])
+Route::get('/eliminarLike/{d}', [megustaController::class, 'Eliminar'])
     ->middleware(Autenticacion::class);
 
 
@@ -96,15 +96,15 @@ Route::get('/eliminarUsuario/{d}', [usuarioController::class, 'Eliminar'])
 
 Route::get('/crearGrupo', function () {return view('crearGrupo');})
     -> middleware(Autenticacion::class);
-Route::post('/crearGrupo', [GrupoController::class, 'Crear'])
+Route::post('/crearGrupo', [grupoController::class, 'Crear'])
     ->middleware(Autenticacion::class); 
-Route::get('/modificarGrupo/{d}', [GrupoController::class, 'MostrarFormularioDeModificar'])
+Route::get('/modificarGrupo/{d}', [grupoController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
-Route::post('/modificarGrupo', [GrupoController::class, 'Modificar'])
+Route::post('/modificarGrupo', [grupoController::class, 'Modificar'])
     ->middleware(Autenticacion::class);
-    Route::get('/listarGrupo', [GrupoController::class, 'ListarTodas'])
+    Route::get('/listarGrupo', [grupoController::class, 'ListarTodas'])
     ->middleware(Autenticacion::class);
-Route::get('/eliminarGrupo/{d}', [GrupoController::class, 'Eliminar'])
+Route::get('/eliminarGrupo/{d}', [grupoController::class, 'Eliminar'])
     ->middleware(Autenticacion::class);
 
 
@@ -112,6 +112,5 @@ Route::get('/eliminarGrupo/{d}', [GrupoController::class, 'Eliminar'])
 
 Route::post("/login", [UserController::class, "Login"]);
 Route::get('/logout', [UserController::class, "Logout"]);
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', function () {return view('login');});
+Route::get('/', function () {return(redirect("/login"));});
