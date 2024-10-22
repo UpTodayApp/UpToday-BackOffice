@@ -23,7 +23,7 @@ use App\Http\Middleware\Autenticacion;
 Route::get('/crearPost', function () {return view('crearpost');})
     -> middleware(Autenticacion::class);
 Route::post('/crearPost', [postController::class, 'Crear'])
-    ->middleware(Autenticacion::class);
+->middleware(Autenticacion::class);
 Route::get('/modificarPost/{d}', [postController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);
 Route::post('/modificarPost', [postController::class, 'Modificar'])

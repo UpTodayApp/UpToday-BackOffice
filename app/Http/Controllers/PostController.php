@@ -16,7 +16,8 @@ class postController extends Controller
             $post->usuario_id = $request->post("usuario");
             $post->contenido = $request->post("contenido");
             $post->save();
-            return redirect("listarpost");
+
+            return(redirect("listarPost"))->with('status', 'Se creó el post');
         }
         return response()->json(["error mesage" => "error al crear post"]);
     }
@@ -36,7 +37,7 @@ class postController extends Controller
     {
         $post = post::findOrFail($id);
         $post->delete();
-        return redirect("/listarpost");
+        return redirect("/listarPost");
     }
 
     public function Modificar(Request $request)
@@ -45,7 +46,7 @@ class postController extends Controller
         $post->usuario_id = $request->post("usuario_id");
         $post->contenido = $request->post("contenido");
         $post->save();
-        return (redirect("listarpost"));
+        return (redirect("listarPost"));
     }
 
     public function MostrarFormularioDeModificar(Request $request, $id)
