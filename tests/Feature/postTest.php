@@ -60,7 +60,7 @@ class postTest extends TestCase
 
     public function test_ObtenerUnaPostQueNoExiste()
     {
-        $response = $this->get('/api/post/{{ 99999 }}');
+        $response = $this->get('post/{{ 99999 }}');
         $response->assertStatus(404);
     }
 
@@ -87,7 +87,7 @@ class postTest extends TestCase
 
     public function test_ModificarPostQueNoExiste()
     {
-        $response = $this->put('/api/post/99999');
+        $response = $this->put('post/99999');
         $response->assertStatus(404);
     }
 
