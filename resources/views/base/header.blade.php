@@ -10,9 +10,12 @@
 
 <body>
     <div class="bienvenida">
-        <h1>Backofice 100% profesional no improvisado en un dia</h1>
+        <div class>
+            <img src="/img/logo-upToday.png" alt="">
+        </div>
         @if( Auth::check())
-        Bienvenido {{ Auth::user() -> name }}. <a href="/logout" class="cerrar_sesion">Cerrar sesion</a>
+        Bienvenido {{ Auth::user() -> name }}. 
+        <button class="cerrar_sesion"><a href="/logout" >Cerrar sesion</a></button>
         @else
         <a href="/login">Iniciar sesion </a><br><br>
         @endif
