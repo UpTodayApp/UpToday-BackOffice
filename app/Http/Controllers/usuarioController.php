@@ -9,17 +9,17 @@ class usuarioController extends Controller
 {
     public function Crear(Request $request)
     {
-        if ($request->has("Correo") && $request->has("Contraseña")) {
+        if ($request->has("correo") && $request->has("contrasenia")) {
 
 
             $usuario = new usuario();
-            $usuario->NombreUsuario = $request->post("NombreUsuario");
-            $usuario->Correo = $request->post("Correo");
-            $usuario->Contraseña = $request->post("Contraseña");
+            $usuario->nombre = $request->post("nombre");
+            $usuario->correo = $request->post("correo");
+            $usuario->contrasenia = $request->post("contrasenia");
             $usuario->save();
-            return $usuario;
+            return(redirect("listarUsuario"));
         }
-        return response()->json(["error mesage" => "no se pudo crear el usuario, hubo un error"]);
+        return response()->json(["error mesage" => "no se pudo crear el usuario"]);
     }
 
     public function ListarTodas(Request $request)
@@ -40,13 +40,19 @@ class usuarioController extends Controller
         return redirect("/listarUsuario");
     }
 
-    public function Modificar(Request $request, $id)
+    public function Modificar(Request $request)
+    {
+        $usuario = usuario::findOrFail($request -> post("id"));
+        $usuario->nombre = $request->post("usuario");
+        $usuario->correo = $request->post("correo");
+        $usuario->contrasenia = $request->post("contrasenia");
+        $usuario->save();
+        return(redirect("listarUsuario"));
+    }
+
+    public function MostrarFormularioDeModificar(Request $request, $id)
     {
         $usuario = usuario::findOrFail($id);
-        $usuario->NombreUsuario = $request->post("NombreUsuario");
-        $usuario->Correo = $request->post("Correo");
-        $usuario->Contraseña = $request->post("Contraseña");
-        $usuario->save();
-        return $usuario;
+        return view("modificarUsuario", ["usuario" => $usuario]);
     }
 }

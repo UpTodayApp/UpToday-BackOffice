@@ -1,13 +1,16 @@
 @include("base.header")
 
 <h2>Usuarios registrados </h2>
+
+<a href="/crearUsuario">Crear</a>
+
 <table>
     <thead>
         <th>
             Usuario
         </th>
         <th>
-            NombreUsuario
+            Nombre
         </th>
         <th>
             Correo
@@ -22,17 +25,18 @@
             {{ $p->id }}
         </td>
         <td>
-            {{ $p->NombreUsuario }}
+            {{ $p->nombre }}
         </td>
         <td>
-            {{ $p->Correo }}
+            {{ $p->correo }}
         </td>
         <td>
-            {{ $p->Contraseña }}
+            {{ $p->contrasenia }}
         </td>
 
         <td>
             <a href="/eliminarUsuario/{{ $p->id }}">Eliminar</a>
+            <a href="/modificarUsuario/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach
