@@ -1,10 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/header.css">
+    <title>Document</title>
+</head>
+<body>
+    
 @include("base.header")
-
-
 <h2>Grupos registrados </h2>
 
-<a href="/crearGrupo">Crear</a>
-
+<a class="crear" href="/crearGrupo">Crear</a>
+<div class="listado">
 <table>
     <thead>
         <th>
@@ -30,9 +39,12 @@
         </td>
 
         <td>
-            <a href="/eliminarGrupo/{{ $p->id }}">Eliminar</a>
-            <a href="/modificarGrupo/{{ $p->id }}">Modificar</a>
+            <a class="eliminar" href="/eliminarGrupo/{{ $p->id }}">Eliminar</a>
+            <a class="modificar" href="/modificarGrupo/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach
 </table>
+</div>
+</body>
+</html>

@@ -1,9 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/header.css">
+    <title>Document</title>
+</head>
+<body>
+    
 @include("base.header")
 
-
 <h2>Likes registrados </h2>
-<a href="/crearMegustaPost">Crear me gusta post</a>
-<a href="/crearMegustaComentario">Crear me gusta comentario</a>
+
+
+<a class="crear" href="/crearMegustaPost">Crear me gusta post</a>
+<a class="crear" href="/crearMegustaComentario">Crear me gusta comentario</a>
+<div class="listado">
 <table>
     <thead>
         <th>
@@ -35,9 +48,12 @@
         </td>
 
         <td>
-            <a href="/eliminarLike/{{ $p->id }}">Eliminar</a>
-            <a href="/modificarLike/{{ $p->id }}">Modificar</a>
+            <a class="cerrarsesion" href="/eliminarLike/{{ $p->id }}">Eliminar</a>
+            <a class="modificar" href="/modificarLike/{{ $p->id }}">Modificar</a>
         </td>
     </tr>
     @endforeach
 </table>
+</div>
+</body>
+</html>

@@ -1,50 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
 
-@include("base.header")
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/header.css">
+    <title>Document</title>
+</head>
 
-<h2>Eventos registrados </h2>
+<body>
+    @include("base.header")
 
-<a href="/crearEvento">Crear</a>
+    <h2>Eventos registrados </h2>
 
-<table>
-    <thead>
-        <th>
-            Usuario
-        </th>
-        <th>
-            Detalles
-        </th>
-        <th>
-            Ubicacion
-        </th>
-        <th>
-            Fecha
-        </th>
-        <th>
-            Publicacion
-        </th>
-    </thead>
-    @foreach ($evento as $p)
-    <tr>
-        <td>
-            {{ $p->usuario_id }}
-        </td>
-        <td>
-            {{ $p->detalles }}
-        </td>
-        <td>
-            {{ $p->ubicacion }}
-        </td>
-        <td>
-            {{ $p->fecha }}
-        </td>
-        <td>
-            {{ $p->created_at }}
-        </td>
+    <a class="crear" href="/crearEvento">Crear</a>
+    <div class="listado">
+        <table>
+            <thead>
+                <th>
+                    Usuario
+                </th>
+                <th>
+                    Detalles
+                </th>
+                <th>
+                    Ubicacion
+                </th>
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    Publicacion
+                </th>
+            </thead>
+            @foreach ($evento as $p)
+            <tr>
+                <td>
+                    {{ $p->usuario_id }}
+                </td>
+                <td>
+                    {{ $p->detalles }}
+                </td>
+                <td>
+                    {{ $p->ubicacion }}
+                </td>
+                <td>
+                    {{ $p->fecha }}
+                </td>
+                <td>
+                    {{ $p->created_at }}
+                </td>
 
-        <td>
-            <a href="/eliminarEvento/{{ $p->id }}">Eliminar</a>
-            <a href="/modificarEvento/{{ $p->id }}">Modificar</a>
-        </td>
-    </tr>
-    @endforeach
-</table>
+                <td>
+                    <a class="eliminar" href="/eliminarEvento/{{ $p->id }}">Eliminar</a>
+                    <a class="modificar" href="/modificarEvento/{{ $p->id }}">Modificar</a>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+</body>
+
+</html>
