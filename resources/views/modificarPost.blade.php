@@ -1,12 +1,26 @@
-@include("base.header")
+<!DOCTYPE html>
+<html lang="en">
 
-    <h3>Modificar un post</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/modificar.css">
+    <title>Modificar Post</title>
+</head>
 
+<body>
+    @include("base.header")
 
-    <form action="/modificarPost" method="post">
+    <h3>Modificar un Post</h3>
+
+    <form class="formulario" action="/modificarPost" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $post -> id }}">
-        usuario: <input type="text" name="usuario_id" value="{{ $post -> usuario_id }}"> <br>
-        contenido: <input type="text" name="contenido" value="{{ $post -> contenido }}"> <br><br>
-        <input type="submit" value="Enviar">
+        <label for="usuario_id">Usuario: </label>
+        <input type="text" name="usuario_id" value="{{ $post -> usuario_id }}"> <br>
+        <label for="contenido">Contenido: </label><input type="text" name="contenido" value="{{ $post -> contenido }}"> <br><br>
+        <input class="enviar" type="submit" value="Enviar">
     </form>
+</body>
+
+</html>

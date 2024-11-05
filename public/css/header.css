@@ -8,29 +8,29 @@ body {
   align-items: center;
 }
 
+
 .bienvenida {
-  height: 250px;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
+  margin: auto;
+  text-align: center;
 }
 
-.header{
+.header {
+  background-color: #ffffff;
+  color: #55608f;
+  padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
- }
+  align-items: center;
+}
 
-img{
-  height: 100px;
+.header img {
+  width: 100px;
 }
 
 .cerrar_sesion {
   color: #ff4d4d;
-  padding: 6px 12px;
+  padding: 6px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -42,30 +42,36 @@ img{
   color: aliceblue;
 }
 
-.menu{
-  width: 100%;
-  margin-top: 0;
+.menu {
+  display: inline-block;
+  background-color: #343D8E;
+  color: white;
+  padding: 15px 0;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 5px;
 }
 
-ul {
+.menu ul {
+  align-items: center;
   list-style: none;
   padding: 0;
-  display: flex;
-  align-items: center;
+  margin: 0;
 }
 
-li {
-  margin-right: 10px;
+.menu li {
+  display: inline-block;
+  margin: 0 15px;
 }
 
-li a {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 14px 16px;
+.menu a {
+  color: white;
   text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
-li a:hover {
-  color:#55608f ;
+.menu a:hover {
+  background-color: #ffffff;
+  color: #343D8E;
 }

@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/header.css">
-    <title>Document</title>
+    <title>Listar Grupos</title>
 </head>
 <body>
-    
 @include("base.header")
 <h2>Grupos registrados </h2>
 

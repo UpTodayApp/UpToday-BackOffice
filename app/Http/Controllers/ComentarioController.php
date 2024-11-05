@@ -10,7 +10,7 @@ class comentarioController extends Controller
 
     public function Crear(Request $request)
     {
-        if ($request->has("contenido") && $request->has("usuario_id")) {
+        if ($request->has("contenido"!=null) && $request->has("usuario_id"!=null)) {
 
 
             $comentario = new comentario();
