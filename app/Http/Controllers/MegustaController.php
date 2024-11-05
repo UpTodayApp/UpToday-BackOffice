@@ -8,7 +8,7 @@ use App\Models\megusta;
 class megustaController extends Controller
 {
     
-    public function CrearPost(Request $request)
+    public function CrearMeGustaPost(Request $request)
     {
         if ($request->has("usuario_id")) {
 
@@ -22,7 +22,7 @@ class megustaController extends Controller
         return response()->json(["error mesage" => "error al crear el megusta"]);
     }
 
-    public function CrearComentario(Request $request)
+    public function CrearMeGustaComentario(Request $request)
     {
         if ($request->has("usuario_id")) {
 

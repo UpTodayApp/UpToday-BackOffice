@@ -1,22 +1,23 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-html,body {
+html,
+body {
   height: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color:aliceblue;
-    font-weight: 100;  
-    font-family: 'nunito', sans-serif ;
-  }
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-family: 'nunito', sans-serif;
+  background: rgb(41, 63, 201);
+  background: linear-gradient(0deg, rgba(41, 63, 201, 0.5886729691876751) 0%, rgba(255, 255, 255, 0.9192051820728291) 60%);
+}
 
-  h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .crear {
@@ -33,27 +34,28 @@ body {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .listado {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    border-color: rgb(144, 93, 16);
-    border: 1px;
-  }
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  border-color: rgb(144, 93, 16);
+  border: 1px;
+}
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-  
-th,td {
+
+th,
+td {
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
@@ -61,44 +63,44 @@ th,td {
 
 
 th {
-    text-align: center;
-    color: aliceblue;
-  }
+  text-align: center;
+  color: aliceblue;
+}
 
-  thead th {
-    background-color: #55608f;
-  }
+thead th {
+  background-color: #55608f;
+}
 
-  tr:hover {
-    background-color: #edd6ff6f;
-  }
+tr:hover {
+  background-color: #edd6ff6f;
+}
 
-  td {
-    position: relative;
-  }
-  
-  td:hover:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -9999px;
-    bottom: -9999px;
-    background-color: rgba(255, 255, 255, 0.2);
-    z-index: -1;
-  }
+td {
+  position: relative;
+}
 
-  .eliminar {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .eliminar:hover {
-    background-color: #ff7979;
+  background-color: #ff7979;
 }
 
 .modificar {

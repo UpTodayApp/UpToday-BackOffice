@@ -10,8 +10,6 @@ class grupoController extends Controller
     public function Crear(Request $request)
     {
         if ($request->has("nombre")) {
-
-
             $grupo = new grupo();
             $grupo->nombre = $request->post("nombre");
             $grupo->descripcion = $request->post("descripcion");

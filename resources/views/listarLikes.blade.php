@@ -16,8 +16,8 @@
     <h2>Likes registrados </h2>
 
 
-    <a class="crear" href="/crearLikePost">Crear me gusta post</a> <br>
-    <a class="crear" href="/crearLikeComentario">Crear me gusta comentario</a>
+    <a class="crear" href="/crearmegustaPost">Crear me gusta post</a> <br>
+    <a class="crear" href="/crearmegustaComentario">Crear me gusta comentario</a>
     <div class="listado">
         <table>
             <thead>
