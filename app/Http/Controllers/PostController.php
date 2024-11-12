@@ -4,24 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\post;
+use App\Models\p_evento;
+use App\Models\realiza;
 
-class postController extends Controller
+class PostController extends Controller
 {
     public function Crear(Request $request)
     {
-        if ($request->has("contenido") && $request->has("usuario")) {
-
-
-            $post = new post();
-            $post->usuario_id = $request->post("usuario");
+        if ($request->has("contenido")) {
+            $post = new Post();
             $post->contenido = $request->post("contenido");
             $post->save();
 
-            return(redirect("listarPost"))->with('status', 'Se creó el post');
-        }
-        return response()->json(["error mesage" => "error al crear post"]);
+            if($request->post("evento_id") !== "") {
+                $p_evento = new p_evento();
+                $p_evento->post_id = $post->id;
+                $p_evento-> evento_id = $request->post("evento_id");
+                $p_evento->save();
+                }
+
+                if($request->post("usuario_id") !== "") {
+                    $realiza = new realiza();
+                    $realiza->post_id = $post->id;
+                    $realiza-> usuario_id = $request->post("usuario_id");
+                    $realiza->save();
+                    }
+
+                     }
+                    return redirect("/listarPost");
     }
 
+    
     public function ListarTodas(Request $request)
     {
         $post = post::all();
@@ -43,7 +56,6 @@ class postController extends Controller
     public function Modificar(Request $request)
     {
         $post = post::findOrFail($request -> post("id"));
-        $post->usuario_id = $request->post("usuario_id");
         $post->contenido = $request->post("contenido");
         $post->save();
         return (redirect("listarPost"));

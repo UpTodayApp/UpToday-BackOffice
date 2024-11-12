@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class usuarioFactory extends Factory
+class c_postFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +14,8 @@ class usuarioFactory extends Factory
     public function definition()
     {
         return [
-            "nombre" => $this->faker->userName(),
-            "contrasenia" => $this->faker->password(8),
-            "correo" => $this->faker->email()
+            "post_id" =>  rand(1, 10),
+            "usuario_id" =>  rand(1, 10),
         ];
     }
 }

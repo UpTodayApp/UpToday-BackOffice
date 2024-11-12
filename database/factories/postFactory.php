@@ -15,7 +15,6 @@ class postFactory extends Factory
     public function definition()
     {
         return [
-            "usuario_id" => rand(1, 10),
             "contenido" => $this->faker->paragraph(2)
         ];
     }

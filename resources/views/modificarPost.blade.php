@@ -16,8 +16,6 @@
     <form class="formulario" action="/modificarPost" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $post -> id }}">
-        <label for="usuario_id">Usuario: </label>
-        <input type="text" name="usuario_id" value="{{ $post -> usuario_id }}"> <br>
         <label for="contenido">Contenido: </label><input type="text" name="contenido" value="{{ $post -> contenido }}"> <br><br>
         <input class="enviar" type="submit" value="Enviar">
     </form>

@@ -18,6 +18,7 @@
         @csrf
         <input type="hidden" name="id" value="{{ $evento -> id }}">
         <label for="">Id Usuario: </label><input type="text" name="usuario_id" value="{{ $evento -> usuario_id }}"> <br>
+        Nombre: <input type="text" name="nombre" value="{{ $evento -> nombre }}"> <br>
         Detalles: <input type="text" name="detalles" value="{{ $evento -> detalles }}"> <br>
         Participan: <input type="text" name="participan" value="{{ $evento -> participan }}"> <br>
         Ubicacion: <input type="text" name="ubicacion" value="{{ $evento -> ubicacion }}"> <br>

@@ -15,8 +15,8 @@
 <div class="formulario">
 <form action="/crearComentario" method="post">
         @csrf
-        <label for="usuario">id Usuario: </label>
-        <input type="text" name="usuario"> <br>
+        <label for="usuario_id">id Usuario: </label>
+        <input type="text" name="usuario_id"> <br>
 
         <label for="contenido">Contenido: </label>
         <input type="text" name="contenido"> <br>

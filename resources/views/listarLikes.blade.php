@@ -16,8 +16,7 @@
     <h2>Likes registrados </h2>
 
 
-    <a class="crear" href="/crearmegustaPost">Crear me gusta post</a> <br>
-    <a class="crear" href="/crearmegustaComentario">Crear me gusta comentario</a>
+    <a class="crear" href="/crearLike">Crear me gusta</a> <br>
     <div class="listado">
         <table>
             <thead>
@@ -37,7 +36,7 @@
             @foreach ($megusta as $p)
             <tr>
                 <td>
-                    {{ $p->usuario_id }}
+                    {{ $p-> usuario -> nombre }}
                 </td>
                 <td>
                     {{ $p->post_id }}
@@ -50,7 +49,6 @@
                 </td>
                 <td>
                     <a class="eliminar" href="/eliminarLike/{{ $p->id }}">Eliminar</a>
-                    <a class="modificar" href="/modificarLike/{{ $p->id }}">Modificar</a>
                 </td>
             </tr>
             @endforeach

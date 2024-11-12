@@ -20,6 +20,10 @@
         <label for="usuario_id">Id Usuario:</label>
         <input type="text" name="usuario_id" id="usuario_id"> <br>
 
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre"> <br>
+
+
         <label for="detalles">Detalles:</label>
         <input type="text" name="detalles" id="detalles"> <br>
 

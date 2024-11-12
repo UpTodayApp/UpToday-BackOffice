@@ -4,23 +4,47 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\comentario;
+use App\Models\c_post;
+use App\Models\c_evento;
+use App\Models\publica;
 
 class comentarioController extends Controller
 {
 
     public function Crear(Request $request)
     {
-        if ($request->has("contenido"!=null) && $request->has("usuario_id"!=null)) {
-
+        if ($request->has("contenido")) {
 
             $comentario = new comentario();
-            $comentario->usuario_id = $request->post("usuario_id");
             $comentario->contenido = $request->post("contenido");
-            $comentario->post_id = $request->post("post_id");
             $comentario->save();
-            return (redirect("listarComentario"));
-        }
+
+            if($request->post("post_id") !== "") {
+            $c_post = new c_post();
+            $c_post->post_id = $request->post("post_id");
+            $c_post-> comentario_id = $comentario->id;
+            $c_post->save();
+            }
+
+            if($request->post("usuario_id") !== "") {
+            $publica = new publica();
+            $publica->usuario_id = $request->post("usuario_id");
+            $publica-> comentario_id = $comentario->id;
+            $publica->save();
+            }
+
+            if($request->post("evento_id") !== "") {
+                $c_evento = new c_evento();
+                $c_evento->evento_id = $request->post("evento_id");
+                $c_evento-> comentario_id = $comentario->id;
+                $c_evento->save();
+                }
+
+                return (redirect("listarComentario"));
+            }
         return response()->json(["error mesage" => "error"]);
+
+        
     }
 
     public function ListarTodas(Request $request)
@@ -44,9 +68,7 @@ class comentarioController extends Controller
     public function Modificar(Request $request)
     {
         $comentario = comentario::findOrFail($request -> post("id"));
-        $comentario->usuario_id = $request->post("usuario_id");
         $comentario->contenido = $request->post("contenido");
-        $comentario->post_id = $request->post("post_id");
         $comentario->save();
         return (redirect("listarComentario"));
     }

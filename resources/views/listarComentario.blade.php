@@ -33,7 +33,7 @@
             @foreach ($comentario as $p)
             <tr>
                 <td>
-                    {{ $p->usuario_id }}
+
                 </td>
                 <td>
                     {{ $p->contenido }}

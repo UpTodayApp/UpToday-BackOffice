@@ -14,7 +14,6 @@ class eventoFactory extends Factory
     public function definition()
     {
         return [
-            "usuario_id" =>  rand(1, 10),
             "participan" =>  rand(1, 10),
             "fecha" => $this->faker->date(),
             "detalles" => $this->faker->paragraph(1),

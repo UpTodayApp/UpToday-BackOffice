@@ -50,14 +50,9 @@ Route::get('/eliminarComentario/{d}', [comentarioController::class, 'Eliminar'])
 
 
 
-Route::get('/crearmegustaPost', function () {return view('crearmegustaPost');})
+Route::get('/crearLike', function () {return view('crearLike');})
     -> middleware(Autenticacion::class);
-Route::post('/crearmegustaPost', [megustaController::class, 'CrearMeGustaPost']);
-
-Route::get('/crearmegustaComentario', function () {return view('crearmegustaComentario');})
-    -> middleware(Autenticacion::class);
-Route::post('/crearmegustaComentario', [megustaController::class, 'CrearMeGustaComentario'])
-    ->middleware(Autenticacion::class);
+Route::post('/crearLike', [MegustaController::class, 'Crear']);
 
     Route::get('/modificarLike/{d}', [megustaController::class, 'MostrarFormularioDeModificar'])
     ->middleware(Autenticacion::class);

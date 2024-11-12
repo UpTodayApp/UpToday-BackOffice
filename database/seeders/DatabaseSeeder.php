@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\post::factory(10)->create();
         \App\Models\comentario::factory(10)->create();
         \App\Models\megusta::factory(10)->create();
+        \App\Models\c_post::factory(10)->create();
+        
     }
 }

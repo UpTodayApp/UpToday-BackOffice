@@ -8,37 +8,30 @@ use App\Models\megusta;
 class megustaController extends Controller
 {
     
-    public function CrearMeGustaPost(Request $request)
+    public function Crear(Request $request)
     {
-        if ($request->has("usuario_id")) {
-
-
+        if ($request->has("usuario_id") && ($request->has("post_id") || $request->has("comentario_id"))) {
             $megusta = new megusta();
             $megusta->usuario_id = $request->post("usuario_id");
-            $megusta->post_id = $request->post("post_id");
+            
+            if ($request->has("post_id")) {
+                $megusta->post_id = $request->post("post_id");
+            } else {
+                $megusta->comentario_id = $request->post("comentario_id");
+            }
+
             $megusta->save();
             return(redirect("listarLike"));
         }
-        return response()->json(["error mesage" => "error al crear el megusta"]);
-    }
-
-    public function CrearMeGustaComentario(Request $request)
-    {
-        if ($request->has("usuario_id")) {
 
 
-            $megusta = new megusta();
-            $megusta->usuario_id = $request->post("usuario_id");
-            $megusta->post_id = $request->post("comentario_id");
-            $megusta->save();
-            return(redirect("listarLike"));
-        }
         return response()->json(["error mesage" => "error al crear el megusta"]);
     }
 
     public function ListarTodas(Request $request)
     {
-        $megusta = megusta::all();
+        #$megusta = megusta::all();
+        $megusta = megusta::With("usuario") -> get();
         return view("listarLikes", ["megusta" => $megusta]);
     }
 
